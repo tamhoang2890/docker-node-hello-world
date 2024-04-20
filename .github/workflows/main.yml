@@ -1,0 +1,19 @@
+name: Build and Push Docker image Dev
+
+on: 
+  push:
+    branches:  
+      - main
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    name: Build & Push Docker image to Container Registry
+    steps:
+    - uses: actions/checkout@v3
+    - name: Build
+      run: |
+        echo "*********** Build ***********"
+        docker build -t helloworld .
+
+   
